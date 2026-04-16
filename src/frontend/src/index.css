@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Bebas Neue";
+    --font-heading: "Sora";
+    --font-body: "Inter";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.625rem;
+
+    /* Vibrant light-mode palette */
+    --color-bg: #fafaf5;
+    --color-surface: #ffffff;
+    --color-primary: #5b21b6;
+    --color-primary-light: #7c3aed;
+    --color-accent: #f97316;
+    --color-sky: #0ea5e9;
+    --color-energy: #ffd600;
+    --color-text: #1c1c2e;
+    --color-text-muted: #6b7280;
+    --color-border: rgba(91, 33, 182, 0.15);
+
+    /* OKLCH tokens — light mode */
+    --background: 0.98 0.008 80;
+    --foreground: 0.13 0.02 270;
+    --card: 1 0 0;
+    --card-foreground: 0.13 0.02 270;
+    --popover: 1 0 0;
+    --popover-foreground: 0.13 0.02 270;
+
+    --primary: 0.42 0.23 292;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.94 0.01 80;
+    --secondary-foreground: 0.13 0.02 270;
+    --muted: 0.96 0.005 80;
+    --muted-foreground: 0.5 0.02 270;
+
+    --accent: 0.7 0.2 45;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.015 292;
+    --input: 0.92 0.01 80;
+    --ring: 0.42 0.23 292;
+
+    --chart-1: 0.42 0.23 292;
+    --chart-2: 0.7 0.2 45;
+    --chart-3: 0.6 0.2 210;
+    --chart-4: 0.85 0.2 95;
+    --chart-5: 0.5 0.25 45;
+
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.13 0.02 270;
+    --sidebar-primary: 0.42 0.23 292;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.96 0.01 80;
+    --sidebar-accent-foreground: 0.13 0.02 270;
+    --sidebar-border: 0.88 0.015 292;
+    --sidebar-ring: 0.42 0.23 292;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: #fafaf5;
+    color: #1c1c2e;
+    font-family: "Inter", sans-serif;
+    @apply antialiased;
+  }
+}
+
+/* ─── Keyframes ─── */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(91, 33, 182, 0.4);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 40px rgba(91, 33, 182, 0.65);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #f97316;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes neon-flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 20px #f97316, 0 0 40px rgba(249, 115, 22, 0.5), 0 0 60px
+      rgba(249, 115, 22, 0.25);
+  }
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+/* ─── Utility classes ─── */
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-orange {
+    text-shadow: 0 0 20px #f97316, 0 0 40px rgba(249, 115, 22, 0.5);
+  }
+
+  .glow-orange-box {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.35), 0 0 60px
+      rgba(249, 115, 22, 0.15);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 30px rgba(91, 33, 182, 0.5);
+  }
+
+  .glow-violet-text {
+    text-shadow: 0 0 20px rgba(91, 33, 182, 0.6), 0 0 40px
+      rgba(91, 33, 182, 0.3);
+  }
+
+  .glow-yellow {
+    text-shadow: 0 0 20px #ffd600, 0 0 40px rgba(255, 214, 0, 0.5);
+  }
+
+  .glow-yellow-box {
+    box-shadow: 0 0 30px rgba(255, 214, 0, 0.5);
+  }
+
+  /* Legacy aliases kept for compatibility */
+  .glow-cyan {
+    text-shadow: 0 0 20px #0ea5e9, 0 0 40px rgba(14, 165, 233, 0.5);
+  }
+  .glow-cyan-box {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.3), 0 0 60px
+      rgba(14, 165, 233, 0.15);
+  }
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(91, 33, 182, 0.4);
+  }
+  .glow-purple-text {
+    text-shadow: 0 0 20px rgba(91, 33, 182, 0.7), 0 0 40px
+      rgba(91, 33, 182, 0.35);
+  }
+
+  .neon-border-orange {
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.2), inset 0 0 15px
+      rgba(249, 115, 22, 0.06);
+  }
+
+  .neon-border-violet {
+    border: 1px solid rgba(91, 33, 182, 0.35);
+    box-shadow: 0 0 15px rgba(91, 33, 182, 0.15), inset 0 0 15px
+      rgba(91, 33, 182, 0.05);
+  }
+
+  .card-elevated {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(91, 33, 182, 0.15);
+    box-shadow: 0 20px 40px rgba(91, 33, 182, 0.1), 0 4px 12px
+      rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(91, 33, 182, 0.12);
+  }
+
+  .hero-text {
+    font-family: "Bebas Neue", cursive;
+    @apply text-5xl md:text-7xl tracking-wider;
+  }
+
+  .section-heading {
+    font-family: "Bebas Neue", cursive;
+    @apply text-4xl md:text-6xl tracking-wider;
+  }
+
+  .section-label {
+    font-family: "Sora", sans-serif;
+    @apply text-xs font-semibold tracking-widest uppercase;
+    color: #6b7280;
+  }
+
+  .font-display {
+    font-family: "Bebas Neue", cursive;
+  }
+  .font-heading {
+    font-family: "Sora", sans-serif;
+  }
+  .font-body {
+    font-family: "Inter", sans-serif;
+  }
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.6s ease both;
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-slide-in-right {
+    animation: slide-in-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-scale-in {
+    animation: scale-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-neon-flicker {
+    animation: neon-flicker 3s infinite;
+  }
+
+  /* Intersection Observer reveal classes */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .animate-float,
+    .animate-pulse-glow,
+    .animate-spin-slow,
+    .animate-marquee,
+    .animate-fade-up,
+    .animate-fade-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-scale-in,
+    .animate-neon-flicker {
+      animation: none;
+    }
+  }
+}

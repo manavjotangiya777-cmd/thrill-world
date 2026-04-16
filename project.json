@@ -1,0 +1,26 @@
+{
+  "overview": "Thrill World is a dark cinematic amusement park marketing website. It features 8 immersive sections: a particle-filled hero with a rotating Ferris wheel, an attractions showcase carousel, an interactive SVG park map, scroll-triggered stats counters, 3D-tilt pricing cards, a guest stories grid, a visit planner, and an animated footer. Built with React + TypeScript + Tailwind CSS.",
+  "features": [
+    "Animated hero with canvas particle field and rotating Ferris wheel",
+    "Horizontal attractions carousel with thrill meter and category filters",
+    "Interactive SVG park map with clickable zones and info popups",
+    "Scroll-triggered animated stats counters (45+ rides, 3M+ visitors, etc.)",
+    "3D-tilt pricing cards with countdown timer and sticky CTA bar",
+    "Masonry guest reviews grid with auto-scrolling testimonial marquee",
+    "Plan your visit section with hours, FAQ accordion, and date picker",
+    "Animated skyline footer with newsletter signup and social links",
+    "Sticky navigation that transitions from transparent to solid on scroll"
+  ],
+  "category": "marketing",
+  "tags": [
+    "amusement-park",
+    "marketing",
+    "landing-page",
+    "dark-theme",
+    "animations",
+    "scroll-effects",
+    "3d-css",
+    "interactive-map"
+  ],
+  "last_updated": "2026-04-16T05:51:14.943Z"
+}
